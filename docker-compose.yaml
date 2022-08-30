@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   app:
-    image: ishenle/prom-app:f0cf136
+    image: ishenle/prom-app:45e8bb3
     environment:
       - HOST=0.0.0.0
       - PORT=8000
@@ -28,7 +28,10 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - grafana-storage:/var/lib/grafana
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml
+      - ./grafana/dashboard.json:/etc/grafana/provisioning/dashboards/dashboard.json
 
 volumes:
   prometheus_data:
