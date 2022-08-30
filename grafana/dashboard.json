@@ -23,13 +23,17 @@
   "graphTooltip": 0,
   "id": 1,
   "links": [],
-  "liveNow": true,
+  "liveNow": false,
   "panels": [
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -66,6 +70,11 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
           "expr": "avg(http_response_time_seconds_sum/http_response_time_seconds_count)",
           "interval": "",
           "legendFormat": "",
@@ -104,11 +113,15 @@
     },
     {
       "aliasColors": {
-        "response_status{instance=\"app:8000\", job=\"go-app\", status=\"503\"}": "red"
+        "response_status{instance=\"app:8000\", job=\"go-app\", status=\"304\"}": "red"
       },
       "bars": true,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -147,7 +160,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "VYvRi_WVz"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "response_status",
@@ -191,6 +204,10 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -229,7 +246,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "VYvRi_WVz"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "http_requests_total",
@@ -273,6 +290,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -309,6 +330,11 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
           "expr": "rate(http_requests_total{job=\"go-app\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "",
@@ -361,6 +387,6 @@
   "timezone": "",
   "title": "Golang HTTP",
   "uid": "1JNOL0aGz",
-  "version": 6,
+  "version": 1,
   "weekStart": ""
 }
