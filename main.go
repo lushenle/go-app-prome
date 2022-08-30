@@ -142,6 +142,12 @@ func getLocalIPAddress() string {
 	return ""
 }
 
+func init() {
+	prometheus.Register(totalRequests)
+	prometheus.Register(responseStatus)
+	prometheus.Register(httpDuration)
+}
+
 func main() {
 	localIP = getLocalIPAddress()
 	HOST := os.Getenv("HOST")
